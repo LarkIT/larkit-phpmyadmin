@@ -1,0 +1,23 @@
+<?php
+
+$cfg['blowfish_secret'] = '<%= @secret -%>';
+<% if @servers.length > 0 -%>
+
+$i = 0;
+// Do not use $cfg['Servers'][0]
+<% end -%>
+<% @servers.each do |server| -%>
+$i++
+<% server.each do |k,v| -%>
+  <% if !!v == v -%>
+<%= "$cfg['Servers'][$i]['#{k}'] = #{v}.upcase;" %>
+  <% else -%>
+<%= "$cfg['Servers'][$i]['#{k}'] = '#{v}';" %>
+  <% end -%>
+<% end -%>
+<% end -%>
+
+<% @config.each do |k, v| -%>
+<%= "$cfg['#{k}'] = '#{v}';" %>
+<% end -%>
+?>
