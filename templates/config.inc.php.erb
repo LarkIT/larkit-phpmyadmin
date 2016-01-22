@@ -7,7 +7,7 @@ $i = 0;
 // Do not use $cfg['Servers'][0]
 <% end -%>
 <% @servers.each do |server| -%>
-$i++
+$i++;
 <% server.each do |k,v| -%>
   <% if !!v == v -%>
 <%= "$cfg['Servers'][$i]['#{k}'] = #{v}.upcase;" %>
