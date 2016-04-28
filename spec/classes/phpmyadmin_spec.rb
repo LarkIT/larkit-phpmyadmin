@@ -16,6 +16,7 @@ describe 'phpmyadmin' do
           it { is_expected.to contain_class('phpmyadmin::config') }
 
           it { is_expected.to contain_package('phpMyAdmin').with(:ensure => 'present') }
+          it { is_expected.to contain_file('/etc/phpMyAdmin').with(:group => 'apache') }
           it { is_expected.to contain_file('/etc/phpMyAdmin/config.inc.php').with(:owner => 'apache', :group => 'apache')}
           it { is_expected.to contain_file('/etc/phpMyAdmin/config.inc.php').with(:content => /\$cfg\['blowfish_secret'\] = '10794148831867382';/)}
           it { is_expected.to contain_file('/etc/phpMyAdmin/config.inc.php').with(:content => /\$cfg\['UploadDir'\] = '\/var\/lib\/phpMyAdmin\/upload';/)}

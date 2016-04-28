@@ -12,6 +12,14 @@ class phpmyadmin::config (
     fail("Use of private class ${name} by ${caller_module_name}")
   }
 
+  $_etc_dir = dirname($::phpmyadmin::config_file)
+
+  file { $_etc_dir:
+    ensure => file,
+    mode   => '0660',
+    group  => $::phpmyadmin::www_group,
+  }
+
   file { $::phpmyadmin::config_file:
     ensure  => file,
     mode    => '0440',
