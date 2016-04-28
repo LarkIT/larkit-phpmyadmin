@@ -1,6 +1,6 @@
 {
   "name": "larkit-phpmyadmin",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "LarkIT",
   "summary": "Installs phpMyAdmin from a package",
   "license": "Apache-2.0",
