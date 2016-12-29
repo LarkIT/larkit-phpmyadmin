@@ -2,6 +2,7 @@ source "https://rubygems.org"
 
 if RUBY_VERSION >= '1.8.7' and RUBY_VERSION < '1.9'
   gem 'rspec', '~> 2.0'
+  gem 'json_pure', '1.8.3'
 else
   gem "rspec", '< 3.2.0'
   gem 'rubocop', '0.33.0'
