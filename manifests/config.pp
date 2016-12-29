@@ -15,8 +15,9 @@ class phpmyadmin::config (
   $_etc_dir = dirname($::phpmyadmin::config_file)
 
   file { $_etc_dir:
-    ensure => file,
-    mode   => '0660',
+    ensure => directory,
+    mode   => '0770',
+    owner  => $::phpmyadmin::www_user,
     group  => $::phpmyadmin::www_group,
   }
 
@@ -26,6 +27,7 @@ class phpmyadmin::config (
     owner   => $::phpmyadmin::www_user,
     group   => $::phpmyadmin::www_group,
     content => template("${module_name}/config.inc.php.erb"),
+    require => [ File[$_etc_dir] ],
   }
 
 
