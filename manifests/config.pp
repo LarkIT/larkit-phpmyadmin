@@ -15,7 +15,7 @@ class phpmyadmin::config (
   $_etc_dir = dirname($::phpmyadmin::config_file)
 
   file { $_etc_dir:
-    ensure => file,
+    ensure => directory,
     mode   => '0660',
     group  => $::phpmyadmin::www_group,
   }
@@ -27,6 +27,4 @@ class phpmyadmin::config (
     group   => $::phpmyadmin::www_group,
     content => template("${module_name}/config.inc.php.erb"),
   }
-
-
 }
