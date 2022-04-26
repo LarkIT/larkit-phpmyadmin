@@ -8,7 +8,7 @@ else
 end
 
 group :test do
-  gem "rake", "< 12.3.3"
+  gem "rake", ">= 12.3.3"
   gem "puppet", ENV['PUPPET_GEM_VERSION'] || '~> 3.8.0'
   gem "rspec-puppet", :git => 'https://github.com/rodjek/rspec-puppet.git'
   gem "puppetlabs_spec_helper"
